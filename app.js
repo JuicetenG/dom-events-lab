@@ -45,13 +45,13 @@ function buttonInput(e) {
   if(e.target.classList.contains('number') && firstNumber !== null && operator !== null) {
     displayElement.innerText += e.target.innerText;
     secondNumber = Number(displayElement.innerText.substring(displayElement.innerText.indexOf(operator) + 1));
-    console.log(secondNumber);
   }
 
   //runs the calculate function if all three values are found
-  if(firstNumber && operator  && secondNumber){
+  if(firstNumber && operator && secondNumber !== null) {
     if(e.target.classList.contains('equals')) {
       calculate();
+      console.log('here');
     }
   }
 }
