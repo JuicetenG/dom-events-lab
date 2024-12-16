@@ -1,5 +1,10 @@
 /*-------------------------------- Constants --------------------------------*/
-
+const calculations = {
+  '+': () => firstNumber + secondNumber,
+  '-': () => firstNumber - secondNumber,
+  '*': () => firstNumber * secondNumber,
+  '/': () => firstNumber / secondNumber
+}
 
 /*-------------------------------- Variables --------------------------------*/
 let firstNumber = secondNumber = operator = null; 
@@ -48,33 +53,16 @@ function buttonInput(e) {
   }
 
   //runs the calculate function if all three values are found
-  if(firstNumber && operator && secondNumber !== null) {
-    if(e.target.classList.contains('equals')) {
-      calculate();
-    }
+  if(e.target.classList.contains('equals')) {
+    calculate();
   }
 }
 
 //calls the performOperation function, updates display, sets operationPerformed to true
 function calculate() {  
-  displayElement.innerHTML = performOperation();
-  operationPerformed = true;
-}
-
-//checks what operator is selected and performs calculation 
-function performOperation() {
-  switch (operator) {
-    case '+':
-      return firstNumber + secondNumber;
-    case '-':
-      return firstNumber - secondNumber;
-    case '*':
-      return firstNumber * secondNumber;
-    case '/':
-      if(secondNumber === 0) {
-        return 'don\'t do dat';
-      }
-      return firstNumber / secondNumber;
+  if(firstNumber && operator && secondNumber !== null) {
+    displayElement.innerHTML = calculations[operator]();
+    operationPerformed = true;
   }
 }
 
@@ -83,3 +71,5 @@ function clear() {
   firstNumber = secondNumber = operator = null;
   displayElement.innerText = '';
 }
+
+
