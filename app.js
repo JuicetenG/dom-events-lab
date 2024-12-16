@@ -51,7 +51,6 @@ function buttonInput(e) {
   if(firstNumber && operator && secondNumber !== null) {
     if(e.target.classList.contains('equals')) {
       calculate();
-      console.log('here');
     }
   }
 }
