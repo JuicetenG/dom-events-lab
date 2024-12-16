@@ -60,9 +60,13 @@ function buttonInput(e) {
 
 //calls the performOperation function, updates display, sets operationPerformed to true
 function calculate() {  
+  operationPerformed = true;
+  if(operator === '/' && secondNumber === 0) {
+    displayElement.innerText = 'don\'t do dat';
+    return;
+  }
   if(firstNumber && operator && secondNumber !== null) {
     displayElement.innerHTML = calculations[operator]();
-    operationPerformed = true;
   }
 }
 
