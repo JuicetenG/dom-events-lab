@@ -41,7 +41,7 @@ function buttonInput(e) {
     displayElement.innerText = `${firstNumber}${operator}`;
   } 
 
-  //logic for getting the second operator
+  //logic for getting the second operand
   if(e.target.classList.contains('number') && firstNumber !== null && operator !== null) {
     displayElement.innerText += e.target.innerText;
     secondNumber = Number(displayElement.innerText.substring(displayElement.innerText.indexOf(operator) + 1));
